@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5">
-                <form action="/projections/add" th:method="POST">
+                <form action="/projections/add" th:method="POST" style="color:white">
                     <input id="id" type="hidden" name="id" th:value="(${movieProjection} != null ? ${movieProjection.getProjection_Id()} : '')">
                     <div class="form-group">
                         <label for="projection_id">ID</label>
@@ -89,6 +89,20 @@
                                     th:each="movie : ${movie}"
                                     th:value="${movie.getMovie_id()}"
                                     th:text="${movie.getMovie_name()}">
+                            </option>
+                        </select>
+                        <label>Auditorium</label>
+                        <select name="auditorium_id" class="form-control" autocomplete="off">
+                            <option th:if="${auditorium != null}"
+                                    th:selected="${auditorium.getAuditorium_id() != null}"
+                                    th:each="auditorium : ${auditorium}"
+                                    th:value="${auditorium.getAuditorium_id()}"
+                                    th:text="${auditorium.getAuditorium_name()}" autocomplete="off">
+                            </option>
+                            <option th:if="${auditorium} == null"
+                                    th:each="auditorium: ${auditorium}"
+                                    th:value="${auditorium.getAuditorium_id()}"
+                                    th:text="${auditorium.getAuditorium_name()}" autocomplete="off">
                             </option>
                         </select>
                     </div>
