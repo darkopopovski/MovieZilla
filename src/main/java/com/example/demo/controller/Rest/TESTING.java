@@ -22,9 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 
 @RestController
@@ -66,7 +64,7 @@ public class TESTING {
     }
 
     @GetMapping
-    public ResponseEntity viewQuery(){
+    public ResponseEntity viewQuery() {
 
 /*
         PaymentType paymentType = this.paymentTypeRepository.findById(12365).get();
@@ -129,14 +127,19 @@ public class TESTING {
 //
 //        List<Client> client223=clientRepository.findBestClient(12732);
 
-        MovieGenreKey movieGenreKey = new MovieGenreKey();
-        movieGenreKey.setMovie(this.movieRepository.findById(1212).get());
-        movieGenreKey.setGenre(this.genreRepository.findById(321).get());
-        MovieGenreCombination movieGenreCombination = new MovieGenreCombination();
-        movieGenreCombination.setMovieGenreKey(movieGenreKey);
-        this.movieGenreCombinationRepository.save(movieGenreCombination);
 
-        return ResponseEntity.ok(movieGenreCombination);
+        SeatCompositeKey seatCompositeKey = new SeatCompositeKey();
+
+        for (int i = 1; i <= 50; i++) {
+            seatCompositeKey.setSeat_id(i);
+            seatCompositeKey.setAuditorium(this.auditoriumRepository.findById(1).get());
+        }
+        Seat seat = new Seat();
+        seat.setSeatCompositeKey(seatCompositeKey);
+        for (int i = 1; i <= 50; i++) {
+            seat.setSeat_number(i);
+        }
+        return ResponseEntity.ok(seat);
     }
 
 }

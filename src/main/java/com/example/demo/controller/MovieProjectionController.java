@@ -5,9 +5,12 @@ import com.example.demo.model.Gives.Gives;
 import com.example.demo.model.Gives.GivesKey;
 import com.example.demo.model.Movie;
 import com.example.demo.model.MovieProjection;
+import com.example.demo.model.Seat.Seat;
+import com.example.demo.model.Seat.SeatCompositeKey;
 import com.example.demo.repository.AuditoriumRepository;
 import com.example.demo.repository.GivesRepository;
 import com.example.demo.repository.MovieGenreCombinationRepository;
+import com.example.demo.repository.SeatRepository;
 import com.example.demo.service.MovieProjectionService;
 import com.example.demo.service.MovieService;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,12 +28,14 @@ public class MovieProjectionController {
     private final MovieGenreCombinationRepository movieGenreCombinationRepository;
     private final AuditoriumRepository auditoriumRepository;
     private final GivesRepository givesRepository;
-    public MovieProjectionController(MovieProjectionService movieProjectionService, MovieService movieService, MovieGenreCombinationRepository movieGenreCombinationRepository, AuditoriumRepository auditoriumRepository, GivesRepository givesRepository) {
+    private final SeatRepository seatRepository;
+    public MovieProjectionController(MovieProjectionService movieProjectionService, MovieService movieService, MovieGenreCombinationRepository movieGenreCombinationRepository, AuditoriumRepository auditoriumRepository, GivesRepository givesRepository, SeatRepository seatRepository) {
         this.movieProjectionService = movieProjectionService;
         this.movieService = movieService;
         this.movieGenreCombinationRepository = movieGenreCombinationRepository;
         this.auditoriumRepository = auditoriumRepository;
         this.givesRepository = givesRepository;
+        this.seatRepository = seatRepository;
     }
 
     @GetMapping
@@ -76,6 +81,8 @@ public class MovieProjectionController {
             gives.setGivesKey(givesKey);
             gives.setSeat_limitation(35);
             this.givesRepository.save(gives);
+
+
             return "redirect:/projections";
     }
 }

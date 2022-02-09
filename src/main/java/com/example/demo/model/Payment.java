@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import com.example.demo.model.Client.Client;
+import com.example.demo.model.Reservation.Reservations;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,10 @@ public class Payment {
     @ManyToOne
     @JoinColumn(name="user_id")
     private Client client;
+
+    @ManyToOne
+    @JoinColumn(name="reservation_id")
+    private Reservations reservations;
 
 
     public Integer getPayment_id() {
@@ -60,5 +65,13 @@ public class Payment {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public Reservations getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Reservations reservations) {
+        this.reservations = reservations;
     }
 }
