@@ -6,7 +6,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     border: none;">
         <a href="/home"><img class="logo" th:src="@{../images/LOGOPNG2.png}" alt="logo"></a>
-         <p style="font-size:20px;color: aquamarine;margin-right: 10px;margin-top: 7px  ">
+         <p style="font-size:20px;color: white;margin-right: 10px;margin-top: 7px  ">
              Welcome:</p><th:block th:if="${#request.getRemoteUser()!=null}"
                                 th:text="${#request.getRemoteUser()}"/>
             <ul class="nav_links">

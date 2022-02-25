@@ -48,25 +48,23 @@
                     <div class="header-one">
                     </div>
                     <div class="centered">
-                        <table style="font-size:2.5rem;">
+                        <table style="font-size:3.0rem;">
                             <thead style="border-bottom: 1px solid rgba(255, 51, 51,0.8)">
                             <tr>
-                                <td style="border-right: 1px solid rgba(255, 51, 51,0.8)">Name</td>
-                                <td style="border-right: 1px solid rgba(255, 51, 51,0.8)">Genre Name</td>
-                                <td style="border-right: 1px solid rgba(255, 51, 51,0.8)">Age Category</td>
-                                <td style="border-right: 1px solid rgba(255, 51, 51,0.8)">Time Duration</td>
-                                <td style="border-right: 1px solid rgba(255, 51, 51,0.8)">Movie Cast</td>
-                                <td>Film Director</td>
+                                <td style="border-right: 1px solid rgba(255, 51, 51,0.8)">Movie Name</td>
+                                <td style="border-right: 1px solid rgba(255, 51, 51,0.8)">Projection Type</td>
+                                <td style="border-right: 1px solid rgba(255, 51, 51,0.8)">Screening Date</td>
+                                <td style="border-right: 1px solid rgba(255, 51, 51,0.8)">Projection Price</td>
                             </tr>
                             </thead>
                             <tbody>
                             <tr th:each="movieprojection : ${movieprojection}">
-                                <td th:text="${movieprojection.getProjection_screening_date()} "/>
-                                <td th:text="${movieprojection.getProjection_movie_start()}"/>
-                                <td th:text="${movieprojection.getProjection_movie_end()} "/>
-                                <td th:text="${movieprojection.getProjection_type()} "/>
-                                <td th:text="${movieprojection.getProjection_price()} "/>
+
+
                                 <td th:text="${movieprojection.movie.getMovie_name()} "/>
+                                <td th:text="${movieprojection.getProjection_type()} "/>
+                                <td th:text="${movieprojection.getProjection_screening_date()} "/>
+                                <td th:text="${movieprojection.getProjection_price()} "/>
 
                                 <td class="text-right">
                                     <form th:action="@{/reserve/projection}">
