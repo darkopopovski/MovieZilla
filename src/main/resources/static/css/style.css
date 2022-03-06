@@ -97,9 +97,9 @@ ul {
 }
 
 li,
-a:hover {
+a:hover:not(.btn) {
     color: red;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .reg:hover {
@@ -111,6 +111,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-bottom: 10%;
     height: 100%
 }
 P{

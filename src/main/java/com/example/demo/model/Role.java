@@ -5,7 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 public enum Role implements GrantedAuthority {
 
 
-//        Client,
+       Client,
        ROLE_CLIENT
 , ROLE_EMPLOYEE;
 
